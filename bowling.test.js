@@ -62,7 +62,7 @@ describe('There is a spare at the last frame followed by', () => {
   });
 });
 
-describe('Reject input array if it', () => {
+describe('Check input array if it', () => {
   // Input is guaranteed to be Number[] but might not be integer
   it('contains float', () => {
     const inputArray = [3.1, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6];
