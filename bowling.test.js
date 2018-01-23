@@ -8,7 +8,7 @@ describe('Score when there is ', () => {
   });
   it('spare followed by nothing', () => {
     const inputArray = [3, 7, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6];
-    const expectedScore = 91 + 3; // base score + next throw
+    const expectedScore = 91 + 7; // base score + second throw
     expect(score(inputArray)).toBe(expectedScore);
   });
   it('strike followed by nothing', () => {
