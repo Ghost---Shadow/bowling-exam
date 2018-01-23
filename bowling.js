@@ -11,7 +11,7 @@ function addSpares(allThrows) {
     // The total value of a spare is 10 plus the number of
     // pins knocked down in their next throw.
     if (allThrows[i] + allThrows[i + 1] === 10) {
-      additionalScore += allThrows[i + 1];
+      additionalScore += allThrows[i + 2];
     }
   }
 

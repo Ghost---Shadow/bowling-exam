@@ -8,7 +8,7 @@ describe('Score when there is ', () => {
   });
   it('spare followed by dud', () => {
     const inputArray = [3, 7, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6];
-    const expectedScore = 91 + 7; // base score + second throw
+    const expectedScore = 91 + 3; // base score + next throw
     expect(bowling.score(inputArray)).toBe(expectedScore);
   });
   it('strike followed by dud', () => {
