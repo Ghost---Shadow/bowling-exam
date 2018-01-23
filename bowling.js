@@ -44,6 +44,10 @@ function addStrikes(allThrows) {
  * @return bool or Error string
  */
 function validateInput(allThrows) {
+  const len = allThrows.length;
+  if (!(len === 20 || len === 21)) {
+    return module.exports.ARRAY_LENGTH_ERROR;
+  }
   const stringArray = allThrows.map(elem => elem.toString());
   const floats = stringArray.filter(elem => elem.indexOf('.') > -1);
   if (floats.length > 0) {
@@ -53,7 +57,8 @@ function validateInput(allThrows) {
 }
 
 /**
- * Evaluates score of the match
+ * Evaluates score of the match and returns a score
+ * or error message
  * @param {Integer[]} allThrows
  * @return {Integer} score
  */
@@ -70,3 +75,4 @@ function score(allThrows) {
 
 module.exports.score = score;
 module.exports.FLOAT_ERROR = 'Error: Expected Integer Array, got Float';
+module.exports.ARRAY_LENGTH_ERROR = 'Error: Invalid Array length, must be 20 or 21';

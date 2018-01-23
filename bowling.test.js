@@ -76,4 +76,23 @@ describe('Check input array if it', () => {
     const expectedOutput = 90;
     expect(bowling.score(inputArray)).toBe(expectedOutput);
   });
+
+  it('is of invalid length: Not empty', () => {
+    // Empty array
+    const inputArray = [];
+    const expectedOutput = bowling.ARRAY_LENGTH_ERROR;
+    expect(bowling.score(inputArray)).toBe(expectedOutput);
+  });
+  it('is of invalid length: too big', () => {
+    // Too big array
+    const inputArray = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+    const expectedOutput = bowling.ARRAY_LENGTH_ERROR;
+    expect(bowling.score(inputArray)).toBe(expectedOutput);
+  });
+  it('is of invalid length: too small', () => {
+    // Too small array
+    const inputArray = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+    const expectedOutput = bowling.ARRAY_LENGTH_ERROR;
+    expect(bowling.score(inputArray)).toBe(expectedOutput);
+  });
 });
