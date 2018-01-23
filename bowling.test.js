@@ -11,4 +11,9 @@ describe('Score when there is ', () => {
     const expectedScore = 91 + 3; // base score + next throw
     expect(score(inputArray)).toBe(expectedScore);
   });
+  it('strike followed by nothing', () => {
+    const inputArray = [3, 10, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6];
+    const expectedScore = 94 + 3 + 6; // base score + next two throws
+    expect(score(inputArray)).toBe(expectedScore);
+  });
 });
