@@ -35,8 +35,6 @@ function addStrikes(allThrows) {
       // There is only one fill ball
       if (!(allThrows[i + 2] === undefined)) {
         additionalScore += allThrows[i + 1] + allThrows[i + 2];
-      } else {
-        additionalScore += allThrows[i + 1];
       }
     }
   }
