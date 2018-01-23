@@ -44,6 +44,19 @@ function addStrikes(allThrows) {
   // Return this additional score
   return additionalScore;
 }
+/**
+ * Validates the input array and returns an Error string
+ * @param {Number[]} allThrows
+ * @return bool or Error string
+ */
+function validateInput(allThrows) {
+  const stringArray = allThrows.map(elem => elem.toString());
+  const floats = stringArray.filter(elem => elem.indexOf('.') > -1);
+  if (floats.length > 0) {
+    return module.exports.FLOAT_ERROR;
+  }
+  return true;
+}
 
 /**
  * Evaluates score of the match
@@ -51,10 +64,15 @@ function addStrikes(allThrows) {
  * @return {Integer} score
  */
 function score(allThrows) {
+  const check = validateInput(allThrows);
+  if (check !== true) {
+    return check;
+  }
   const baseScore = allThrows.reduce((acc, elem) => acc + elem);
   const scoreFromSpares = addSpares(allThrows);
   const scoreFromStrikes = addStrikes(allThrows);
   return baseScore + scoreFromSpares + scoreFromStrikes;
 }
 
-module.exports = score;
+module.exports.score = score;
+module.exports.FLOAT_ERROR = 'Error: Expected Integer Array, got Float';
