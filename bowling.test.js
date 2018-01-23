@@ -48,3 +48,16 @@ describe('There is a strike at the second last throw followed by', () => {
     expect(score(inputArray)).toBe(expectedScore);
   });
 });
+
+describe('There is a spare at the last frame followed by', () => {
+  it('dud', () => {
+    const inputArray = [3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 7, 1];
+    const expectedScore = 92;
+    expect(score(inputArray)).toBe(expectedScore);
+  });
+  it('strike', () => {
+    const inputArray = [3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 7, 10];
+    const expectedScore = 101;
+    expect(score(inputArray)).toBe(expectedScore);
+  });
+});
