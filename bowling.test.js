@@ -17,3 +17,16 @@ describe('Score when there is ', () => {
     expect(score(inputArray)).toBe(expectedScore);
   });
 });
+
+describe('There is a strike at the last throw followed by', () => {
+  it('dud', () => {
+    const inputArray = [3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 10, 1];
+    const expectedScore = 94 + 1; // base score + fill ball
+    expect(score(inputArray)).toBe(expectedScore);
+  });
+  it('strike', () => {
+    const inputArray = [3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 10, 10];
+    const expectedScore = 94 + 10; // base score + fill ball
+    expect(score(inputArray)).toBe(expectedScore);
+  });
+});
