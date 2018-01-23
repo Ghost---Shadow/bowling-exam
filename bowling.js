@@ -7,7 +7,7 @@ function addSpares(allThrows) {
   let additionalScore = 0;
 
   // Iterate over the array with strides of 2 throws.
-  for (let i = 0; i < 10; i += 2) {
+  for (let i = 0; i < 18; i += 2) {
     // The total value of a spare is 10 plus the number of
     // pins knocked down in their next throw.
     if (allThrows[i] + allThrows[i + 1] === 10) {
@@ -28,13 +28,15 @@ function addStrikes(allThrows) {
   let additionalScore = 0;
 
   // Iterate over the array with strides of 1 throw
-  for (let i = 0; i < 10; i += 1) {
+  for (let i = 0; i < 18; i += 1) {
     // If a throw knocks out 10 pinns
     // then add the point of the next two throws
     if (allThrows[i] === 10) {
       // There is only one fill ball
-      if (allThrows[i + 2]) {
+      if (!(allThrows[i + 2] === undefined)) {
         additionalScore += allThrows[i + 1] + allThrows[i + 2];
+      } else {
+        additionalScore += allThrows[i + 1];
       }
     }
   }
