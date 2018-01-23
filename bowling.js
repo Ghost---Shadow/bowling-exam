@@ -32,13 +32,9 @@ function addStrikes(allThrows) {
     // If a throw knocks out 10 pinns
     // then add the point of the next two throws
     if (allThrows[i] === 10) {
-      // There is only one fill ball
-      if (!(allThrows[i + 2] === undefined)) {
-        additionalScore += allThrows[i + 1] + allThrows[i + 2];
-      }
+      additionalScore += allThrows[i + 1] + allThrows[i + 2];
     }
   }
-
   // Return this additional score
   return additionalScore;
 }
