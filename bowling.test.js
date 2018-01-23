@@ -3,7 +3,7 @@ const score = require('./bowling');
 describe('Score when there is ', () => {
   it('no strikes or spares', () => {
     const inputArray = [3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6];
-    const expectedScore = 90;
+    const expectedScore = 90; // base score
     expect(score(inputArray)).toBe(expectedScore);
   });
   it('spare followed by dud', () => {
@@ -52,12 +52,12 @@ describe('There is a strike at the second last throw followed by', () => {
 describe('There is a spare at the last frame followed by', () => {
   it('dud', () => {
     const inputArray = [3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 7, 1];
-    const expectedScore = 92;
+    const expectedScore = 92; // base score + fill ball
     expect(score(inputArray)).toBe(expectedScore);
   });
   it('strike', () => {
     const inputArray = [3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 7, 10];
-    const expectedScore = 101;
+    const expectedScore = 101; // base score + fill ball
     expect(score(inputArray)).toBe(expectedScore);
   });
 });
