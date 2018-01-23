@@ -95,4 +95,14 @@ describe('Check input array if it', () => {
     const expectedOutput = bowling.ARRAY_LENGTH_ERROR;
     expect(bowling.score(inputArray)).toBe(expectedOutput);
   });
+  it('gives the player fill ball in case of spare', () => {
+    const inputArray = [3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 7];
+    const expectedOutput = bowling.FILL_BALL_EXPECTED_ERROR;
+    expect(bowling.score(inputArray)).toBe(expectedOutput);
+  });
+  it('gives the player fill ball in case of strike', () => {
+    const inputArray = [3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 10];
+    const expectedOutput = bowling.FILL_BALL_EXPECTED_ERROR;
+    expect(bowling.score(inputArray)).toBe(expectedOutput);
+  });
 });

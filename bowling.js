@@ -44,10 +44,23 @@ function addStrikes(allThrows) {
  * @return bool or Error string
  */
 function validateInput(allThrows) {
+  // Length of the array must be valid
   const len = allThrows.length;
   if (!(len === 20 || len === 21)) {
     return module.exports.ARRAY_LENGTH_ERROR;
   }
+
+  // Fill ball must be given if there is a strike or spare
+  // in the last frame
+  if (allThrows.length === 20) {
+    const isLastThrowSpare = allThrows[len - 1] + allThrows[len - 2] === 10;
+    const isOneOfTheThrowsStrike = allThrows[len - 1] === 10 || allThrows[len - 2] === 10;
+    if (isLastThrowSpare || isOneOfTheThrowsStrike) {
+      return module.exports.FILL_BALL_EXPECTED_ERROR;
+    }
+  }
+
+  // There must not be any floats
   const stringArray = allThrows.map(elem => elem.toString());
   const floats = stringArray.filter(elem => elem.indexOf('.') > -1);
   if (floats.length > 0) {
@@ -76,3 +89,4 @@ function score(allThrows) {
 module.exports.score = score;
 module.exports.FLOAT_ERROR = 'Error: Expected Integer Array, got Float';
 module.exports.ARRAY_LENGTH_ERROR = 'Error: Invalid Array length, must be 20 or 21';
+module.exports.FILL_BALL_EXPECTED_ERROR = 'Error: Player must receive a fill ball';
